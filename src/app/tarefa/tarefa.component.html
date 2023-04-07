@@ -1,0 +1,23 @@
+<div>
+    <div class="container shadow mt-5">
+        <h3>Lista de Tarefas</h3>
+        <hr/>
+        <div class="new-item">
+            <input class="form-control shadow-sm" type="text" placeholder="Nome da tarefa" #inputTarefa />
+            <button class="btn btn-outline-danger shadow-sm ms-3" (click)="adicionar(inputTarefa.value)">Adicionar</button>
+        </div>
+        
+        <ul class="lista">
+            <ul class="todo-list text-muted fw-bold" *ngFor="let tarefa of listaTarefas">
+                <li class="todo-item">
+                    <div (click)="completar(tarefa.id)">
+                        {{tarefa.nome}} <i *ngIf="tarefa.concluida" class="fa-sharp fa-solid fa-check"></i>
+                    </div>
+                    <button class="btn btn-outline-danger shadow-sm" (click)="deletar(tarefa.id)">
+                        <i class="fa-solid fa-trash-can"></i>
+                    </button>
+                </li>
+            </ul>
+        </ul>
+    </div>
+</div>
